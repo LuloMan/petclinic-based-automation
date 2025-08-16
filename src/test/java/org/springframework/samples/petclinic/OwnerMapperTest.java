@@ -23,6 +23,6 @@ public class OwnerMapperTest {
     public void testMapOwnerToDto() {
         Owner owner = new Owner();
         owner.setFirstName("John");
-        assertEquals(owner.getFirstName(), "John"); 
+        assertEquals(owner.getFirstName(), "John");
     }
 } 

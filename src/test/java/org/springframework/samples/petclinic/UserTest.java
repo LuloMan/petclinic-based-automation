@@ -8,5 +8,11 @@ import static org.testng.Assert.*;
 @Epic("Model")
 @Feature("User Model Unit Tests")
 public class UserTest {
-
+    @Test(description = "Should set and get username")
+    @Story("User Getter/Setter")
+    public void testSetAndGetUserName() {
+        User user = new User();
+        user.setUsername("admin");
+        assertEquals(user.getUsername(), "admin");
+    }
 } 
