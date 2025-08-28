@@ -201,6 +201,20 @@
             <version>5.2.0</version>
             <scope>test</scope>
         </dependency>
+        <!--For CSV Files -->
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>5.9</version>
+            <scope>test</scope>
+        </dependency>
+        <!--For REST-assured Test -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.5.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <reporting>
