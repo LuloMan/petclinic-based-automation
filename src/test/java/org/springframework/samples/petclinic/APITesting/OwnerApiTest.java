@@ -1,5 +1,6 @@
 package org.springframework.samples.petclinic.APITesting;
 
+import io.qameta.allure.*;
 import io.restassured.http.ContentType;
 
 import org.testng.annotations.Test;
@@ -7,10 +8,14 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
+@Epic("PetClinic API Tests")
+@Feature("Owners")
 public class OwnerApiTest extends BaseApiTest{
 
     private static int ownerId;
 
+    @Story("Create Owner")
+    @Severity(SeverityLevel.CRITICAL)
     @Test(dataProvider = "ownersData", dataProviderClass = CsvDataProvider.class,priority = 1)
     public void createOwner(String firstName, String lastName, String address, String city, String telephone) {
         ownerId =
@@ -25,6 +30,8 @@ public class OwnerApiTest extends BaseApiTest{
             .extract().path("id");
     }
 
+    @Story("Get Owner")
+    @Severity(SeverityLevel.NORMAL)
     @Test(priority = 2)
     public void getOwnerById() {
         given()
@@ -36,6 +43,8 @@ public class OwnerApiTest extends BaseApiTest{
             .body("id", equalTo(ownerId));
     }
 
+    @Story("Update Owner")
+    @Severity(SeverityLevel.CRITICAL)
     @Test(priority = 3)
     public void updateOwner() {
         given()
@@ -47,6 +56,8 @@ public class OwnerApiTest extends BaseApiTest{
             .statusCode(204);
     }
 
+    @Story("Delete Owner")
+    @Severity(SeverityLevel.CRITICAL)
     @Test(priority = 4)
     public void deleteOwner() {
         given()

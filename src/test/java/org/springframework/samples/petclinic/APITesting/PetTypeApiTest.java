@@ -1,5 +1,6 @@
 package org.springframework.samples.petclinic.APITesting;
 
+import io.qameta.allure.*;
 import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
 
@@ -10,11 +11,15 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
+@Epic("PetClinic API Tests")
+@Feature("PetTypes")
 public class PetTypeApiTest extends BaseApiTest {
 
     private static List<Integer> petTypeIds = new ArrayList<>();
     private static final List<String> petTypeNames = Arrays.asList("fish", "rat", "spider");
 
+    @Story("Create PetType")
+    @Severity(SeverityLevel.CRITICAL)
     @Test(priority = 1)
     public void createPetTypes() {
         for (String name : petTypeNames) {
@@ -33,6 +38,8 @@ public class PetTypeApiTest extends BaseApiTest {
         }
     }
 
+    @Story("Get PetType")
+    @Severity(SeverityLevel.NORMAL)
     @Test(priority = 2)
     public void getPetTypesById() {
         for (Integer id : petTypeIds) {
@@ -46,6 +53,8 @@ public class PetTypeApiTest extends BaseApiTest {
         }
     }
 
+    @Story("Update PetType")
+    @Severity(SeverityLevel.CRITICAL)
     @Test(priority = 3)
     public void updateFirstPetType() {
         Integer id = petTypeIds.get(0);
@@ -60,6 +69,8 @@ public class PetTypeApiTest extends BaseApiTest {
             .statusCode(204);
     }
 
+    @Story("Delete PetType")
+    @Severity(SeverityLevel.CRITICAL)
     @Test(priority = 4)
     public void deletePetTypes() {
         for (Integer id : petTypeIds) {

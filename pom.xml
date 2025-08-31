@@ -215,6 +215,12 @@
             <version>5.5.0</version>
             <scope>test</scope>
         </dependency>
+        <!--Selenium for UI Test -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.23.0</version>
+        </dependency>
     </dependencies>
 
     <reporting>
